@@ -1,0 +1,63 @@
+// <= 320px   : xs-4
+@mixin xs-4 {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+// <= 375px   : xs-3
+@mixin xs-3 {
+  @media screen and (max-width: 375px) {
+    @content;
+  }
+}
+
+// <= 480px   : xs-2
+@mixin xs-2 {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+// <= 575px   : xs (STANDARD) [481; 575]
+
+// <= 640px   : sm
+@mixin sm {
+  @media screen and (min-width: 639px) {
+    @content;
+  }
+}
+
+// <= 768px   : md
+@mixin md {
+  @media screen and (min-width: 767px) {
+    @content;
+  }
+}
+
+// <= 992px   : lg
+@mixin lg {
+  @media screen and (min-width: 991px) {
+    @content;
+  }
+}
+
+// <= 1200px  : xl
+@mixin xl {
+  @media screen and (min-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin centerFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin centerColumnFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

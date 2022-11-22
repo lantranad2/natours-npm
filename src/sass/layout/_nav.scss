@@ -1,0 +1,105 @@
+@use "../abstracts/variables" as *;
+
+.nav {
+  &__btns {
+    display: flex;
+    justify-content: end;
+  }
+
+  &__icons {
+    user-select: none;
+    cursor: pointer;
+    z-index: $z-index-icons;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0.9rem;
+    width: 50px;
+    height: 50px;
+    background: $color-grey-light;
+    border-radius: 100%;
+    box-shadow: 0 1rem 3rem rgb(0 0 0 / 0.3);
+  }
+
+  &__icon {
+    width: $width-nav-btn;
+    height: $width-nav-btn;
+    color: $color-grey;
+  }
+
+  &__icon--close {
+    display: none;
+  }
+
+  &--expanded &__icon--menu {
+    display: none;
+  }
+
+  &--expanded &__icon--close {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: left 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: -200%;
+    bottom: 0;
+    z-index: $z-index-menu-hidden;
+  }
+
+  &--expanded &__list {
+    z-index: $z-index-menu;
+    left: 0;
+  }
+
+  &__bg {
+    user-select: none;
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    position: fixed;
+    top: 1rem;
+    margin-right: 1px;
+    background: radial-gradient($color-primary-light, $color-primary-dark);
+    transform-origin: center;
+    z-index: $z-index-menu-bg;
+  }
+
+  &--expanded &__bg {
+    transform: scale(100);
+  }
+
+  &__link {
+    color: $color-grey-light;
+    text-transform: uppercase;
+    font-size: 2.6rem;
+    font-weight: 300;
+    padding: 1rem;
+    background-image: linear-gradient(
+      120deg,
+      transparent 0%,
+      transparent 50%,
+      #fff 50%
+    );
+    background-size: 250%;
+    transition: all 0.6s;
+    display: inline-block;
+  }
+
+  &__link:hover {
+    color: $color-primary;
+    transform: translateX(10px);
+    background-position: 100%;
+  }
+}

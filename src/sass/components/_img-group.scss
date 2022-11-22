@@ -1,0 +1,67 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.img-group {
+  height: 200px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+
+  &__photo {
+    width: 46%;
+    position: absolute;
+    transform-origin: center;
+    border-radius: 7px;
+    transition: all 0.3s;
+    outline-offset: 10px;
+    z-index: $z-index-photo-group;
+
+    &:hover {
+      transform: translateY(-50%) scale(1.2);
+      outline: 8px solid $color-primary;
+      z-index: $z-index-photo-group + 1;
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+    transform: translateY(-50%) scale(0.9);
+  }
+
+  &__photo--1 {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scale(1);
+  }
+
+  &__photo--2 {
+    left: 30%;
+    top: 35%;
+    transform: translateY(-50%) scale(1);
+  }
+
+  &__photo--3 {
+    right: 0;
+    top: 65%;
+    transform: translateY(-50%) scale(1);
+  }
+
+  @include xs-2 {
+    height: 150px;
+  }
+
+  @include xs-3 {
+    height: 100px;
+  }
+
+  @include xs-4 {
+  }
+
+  @include sm {
+    height: 250px;
+  }
+
+  @include lg {
+    height: 100%;
+  }
+}

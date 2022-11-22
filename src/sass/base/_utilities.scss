@@ -1,0 +1,22 @@
+@use "../abstracts/variables" as *;
+@use "animation" as *;
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $padding-base;
+  padding-right: $padding-base;
+}
+
+.animated-from-left {
+  animation: moveFromLeft 0.75s ease-out backwards;
+}
+
+.animated-from-right {
+  animation: moveFromRight 0.75s ease-out backwards;
+}
+
+.animated-from-bottom {
+  animation: moveFromBottom 0.75s ease-out backwards;
+}

@@ -1,0 +1,113 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.header {
+  height: 90vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 133, 0.8)
+    ),
+    url(../images/header.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+  position: relative;
+
+  &__logo {
+    padding-top: $padding-base;
+    padding-bottom: $padding-base;
+  }
+
+  &__logo img {
+    display: block;
+    max-width: 70px;
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    color: $color-grey-light;
+  }
+
+  &__heading {
+    font-size: 5rem;
+    letter-spacing: 20px;
+    margin-right: -20px;
+  }
+
+  &__subheading {
+    font-size: 1.6rem;
+    letter-spacing: 14px;
+    margin-right: -14px;
+  }
+
+  @include xs-2 {
+    &__heading {
+      font-size: 4.4rem;
+      letter-spacing: 14px;
+      margin-right: -14px;
+    }
+
+    &__subheading {
+      font-size: 1.6rem;
+      letter-spacing: 7px;
+      margin-right: -7px;
+    }
+  }
+
+  @include xs-3 {
+    &__heading {
+      font-size: 3.4rem;
+      letter-spacing: 12px;
+      margin-right: -12px;
+    }
+
+    &__subheading {
+      font-size: 1.4rem;
+      letter-spacing: 7px;
+      margin-right: -7px;
+    }
+  }
+
+  @include xs-4 {
+    &__heading {
+      font-size: 3rem;
+      letter-spacing: 10px;
+      margin-right: -10px;
+    }
+
+    &__subheading {
+      font-size: 1.4rem;
+      letter-spacing: 6px;
+      margin-right: -6px;
+    }
+  }
+
+  @include md {
+    &__heading {
+      font-size: 6rem;
+    }
+
+    &__subheading {
+      font-size: 2rem;
+    }
+  }
+}

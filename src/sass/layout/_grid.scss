@@ -1,0 +1,9 @@
+@use "../abstracts/mixins" as *;
+
+.grid {
+  display: grid;
+
+  // @include md {
+  //   grid-template-columns: 1fr 1fr;
+  // }
+}

@@ -1,0 +1,111 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+
+  &__header {
+    text-align: center;
+  }
+
+  &__group {
+    position: relative;
+  }
+
+  &__input {
+    padding: 1.2rem 1.6rem;
+    outline: none;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    width: 100%;
+    display: block;
+    font-family: inherit;
+    color: inherit;
+    border-radius: 3px;
+    font-size: 1.8rem;
+    transition: all 0.3s;
+
+    &::-webkit-input-placeholder {
+      color: lighten($color-grey, 30%);
+    }
+
+    &:valid {
+      border-bottom: 3px solid $color-primary-dark;
+    }
+
+    &:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+  }
+
+  &__input:placeholder-shown + &__label {
+    top: 1.1rem;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__label {
+    position: absolute;
+    top: 5rem;
+    left: 1.6rem;
+    transition: all 0.3s;
+    color: $color-primary-dark;
+    font-size: 1.6rem;
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radios {
+    display: flex;
+  }
+
+  &__radio-group {
+    flex: 1;
+  }
+
+  &__radio-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  &__radio-custom {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 4px solid $color-primary;
+    border-radius: 100%;
+    @include centerFlex;
+
+    &::after {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      border-radius: 100%;
+    }
+  }
+
+  &__radio-input:checked + &__radio-label &__radio-custom::after {
+    background: $color-primary;
+  }
+
+  &__btn {
+    align-self: flex-start;
+  }
+
+  @include xs-2 {
+    &__radios {
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+  }
+
+  @include md {
+    &__header {
+      text-align: left;
+    }
+  }
+}

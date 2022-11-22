@@ -1,0 +1,114 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.story {
+  background: rgba($color-grey-light, 0.6);
+  max-width: 420px;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 4rem rgba($color-grey, 0.4);
+
+  &__figure {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  &__figure:hover &__img {
+    transform: scale(1.2);
+    filter: blur(5px) brightness(80%);
+  }
+
+  &__figure:hover &__name {
+    opacity: 1;
+    top: 50%;
+  }
+
+  &__img {
+    transition: all 0.4s;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__name {
+    position: absolute;
+    opacity: 0;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+    width: 100%;
+    transition: all 0.4s;
+  }
+
+  &__text {
+    padding: 2rem;
+  }
+
+  &__heading {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  @include sm {
+    max-width: max-content;
+    transform: skewX(-3deg);
+    padding: 5rem 5rem 5rem 7rem;
+
+    & > * {
+      transform: skewX(3deg);
+    }
+
+    &__figure {
+      float: left;
+      width: 150px;
+      height: 150px;
+      border-radius: 100%;
+      z-index: 1;
+
+      clip-path: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      transform: translateX(-2rem) skewX(3deg);
+    }
+
+    &__name {
+      font-size: 2rem;
+      width: fit-content;
+    }
+
+    &__text {
+      padding: 0;
+    }
+
+    &__heading {
+      margin-bottom: 1rem;
+    }
+  }
+
+  @include md {
+    &__figure {
+      width: 200px;
+      height: 200px;
+    }
+
+    &__heading {
+      font-size: 2.2rem;
+    }
+  }
+
+  @include lg {
+    &__figure {
+      width: 220px;
+      height: 220px;
+    }
+
+    &__heading {
+      font-size: 2.4rem;
+    }
+  }
+}

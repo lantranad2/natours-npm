@@ -1,0 +1,431 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.about {
+  &__content {
+    gap: 1rem;
+
+    @include lg {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__imgs {
+    padding: 3rem 4rem;
+
+    @include md {
+      padding: 3rem 2rem;
+    }
+  }
+}
+
+.features {
+  padding-top: 20rem;
+  padding-bottom: 20rem;
+
+  background: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 133, 0.8)
+    ),
+    url("../images/feature.jpg");
+  background-size: cover;
+  transform: skewY(-7deg);
+
+  & > * {
+    transform: skewY(7deg);
+  }
+
+  &__list {
+    gap: 5rem;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+    transition: all 0.4s;
+  }
+
+  &__item:hover {
+    transform: translateY(-20px) scale(1.03);
+  }
+
+  &__icon {
+    font-size: 6rem;
+    font-weight: 600;
+    line-height: 1;
+    background: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    background-clip: text;
+    color: transparent;
+  }
+
+  &__heading {
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    font-weight: 600;
+  }
+
+  @include sm {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+  }
+
+  @include xl {
+    &__list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &__item {
+      padding: 1.6rem;
+    }
+
+    &__heading {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+
+    &__description {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.tours {
+  gap: 7rem;
+
+  &__items {
+    width: 100%;
+    gap: 5rem;
+  }
+
+  &__item {
+    width: 100%;
+    max-width: 420px;
+    justify-self: center;
+    overflow: hidden;
+    background: $color-grey-light;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  &__img {
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+    background-blend-mode: screen;
+    height: 220px;
+    position: relative;
+  }
+
+  &__item--secondary &__img {
+    background-image: linear-gradient(
+        to right,
+        $color-secondary-light,
+        $color-secondary-dark
+      ),
+      url(../images/tours-the-secondary.jpg);
+  }
+
+  &__item--primary &__img {
+    background-image: linear-gradient(
+        to right,
+        $color-primary-light,
+        $color-primary-dark
+      ),
+      url(../images/tours-the-primary.jpg);
+  }
+
+  &__item--tertiary &__img {
+    background-image: linear-gradient(
+        to right,
+        $color-tertiary-light,
+        $color-tertiary-dark
+      ),
+      url(../images/tours-the-tertiary.jpg);
+  }
+
+  &__heading {
+    position: absolute;
+    width: 200px;
+    bottom: 5rem;
+    right: 2rem;
+    text-align: right;
+  }
+
+  &__heading-text {
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    font-weight: 400;
+    padding: 0.6rem 1.2rem;
+    color: $color-grey-light;
+    box-decoration-break: clone;
+  }
+
+  &__item--secondary &__heading-text {
+    background: linear-gradient(
+      to right,
+      $color-secondary-light,
+      $color-secondary-dark
+    );
+  }
+
+  &__item--primary &__heading-text {
+    background: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+  }
+
+  &__item--tertiary &__heading-text {
+    background: linear-gradient(
+      to right,
+      $color-tertiary-light,
+      $color-tertiary-dark
+    );
+  }
+
+  &__list {
+    padding: 1.5rem 0;
+  }
+
+  &__list-item {
+    padding: 0.6rem;
+    border-bottom: 1px solid lighten($color-grey, 40);
+    text-align: center;
+    font-weight: 300;
+    width: 50%;
+    margin: 0 auto;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  &__side--back {
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  &__item--secondary &__side--back {
+    background: linear-gradient(
+      to right,
+      $color-secondary-light,
+      $color-secondary-dark
+    );
+  }
+
+  &__item--primary &__side--back {
+    background: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+  }
+
+  &__item--tertiary &__side--back {
+    background: linear-gradient(
+      to right,
+      $color-tertiary-light,
+      $color-tertiary-dark
+    );
+  }
+
+  &__subheading {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    color: $color-grey-light;
+    font-weight: 300;
+  }
+
+  &__price {
+    font-size: 3.5rem;
+    color: $color-grey-light;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  &__btn {
+    align-self: center;
+  }
+
+  @include xs-2 {
+    &__list-item {
+      width: 75%;
+    }
+  }
+
+  @include lg {
+    &__items {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+    }
+
+    &__item {
+      perspective: 150rem;
+      position: relative;
+      height: 480px;
+      box-shadow: none;
+      background: none;
+      overflow: visible;
+    }
+
+    &__side {
+      backface-visibility: hidden;
+      transition: transform 0.8s ease;
+      border-radius: 7px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    &__side--front {
+      background: #fff;
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__side--back {
+      transform: rotateY(180deg);
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      clip-path: none;
+    }
+
+    &__price {
+      font-size: 6rem;
+      margin-bottom: 8rem;
+    }
+
+    &__item:hover &__side--front {
+      transform: rotateY(-180deg);
+    }
+
+    &__item:hover &__side--back {
+      transform: rotateY(0);
+    }
+
+    &__list {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__list-item {
+      width: 75%;
+    }
+  }
+
+  @include xl {
+    &__items {
+      gap: 5rem;
+    }
+  }
+}
+
+.stories {
+  gap: 6rem;
+  position: relative;
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    opacity: 0.15;
+    overflow: hidden;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  &__link {
+    align-self: center;
+  }
+}
+
+.booking {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: calc(100% - 3.2rem);
+    max-width: 420px;
+    background: linear-gradient(
+        170deg,
+        rgba($color-grey-light, 0.8) 0%,
+        rgba($color-grey-light, 0.8) 65%,
+        transparent 65%
+      ),
+      center / cover url("../images/booking-bg.jpg");
+    border-radius: 7px;
+    box-shadow: 0 15px 40px rgba($color-grey, 0.2);
+    padding: 4rem 3rem 20rem;
+  }
+
+  @include xs-2 {
+    &__content {
+      padding-bottom: 25rem;
+    }
+  }
+
+  @include md {
+    &__content {
+      max-width: 1200px;
+      background: linear-gradient(
+          105deg,
+          rgba($color-grey-light, 0.8) 0%,
+          rgba($color-grey-light, 0.8) 62%,
+          transparent 62%
+        ),
+        center / cover url("../images/booking-bg.jpg");
+      padding-bottom: 4rem;
+    }
+
+    &__form {
+      width: 60%;
+    }
+  }
+
+  @include lg {
+    &__content {
+      background: linear-gradient(
+          105deg,
+          rgba($color-grey-light, 0.8) 0%,
+          rgba($color-grey-light, 0.8) 50%,
+          transparent 50%
+        ),
+        center / cover url("../images/booking-bg.jpg");
+    }
+
+    &__form {
+      width: 45%;
+    }
+  }
+}

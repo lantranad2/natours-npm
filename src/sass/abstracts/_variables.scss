@@ -1,0 +1,25 @@
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-grey: #777;
+$color-grey-light: #f7f7f7;
+$color-grey-dark: #333;
+
+$padding-base: 1.6rem;
+$width-nav-btn: 3.5rem;
+
+$z-index-base: 0;
+$z-index-btn-after: $z-index-base - 1;
+$z-index-menu-hidden: $z-index-btn-after - 1;
+$z-index-menu-bg: $z-index-base + 1;
+$z-index-menu: $z-index-menu-bg + 1;
+$z-index-icons: $z-index-menu + 1;
+$z-index-popup: $z-index-icons + 1;
+$z-index-photo-group: $z-index-menu-bg - 1;

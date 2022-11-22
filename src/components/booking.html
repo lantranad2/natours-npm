@@ -1,0 +1,58 @@
+<section class="block block--primary booking">
+  <div class="container booking__content">
+    <div class="form__header">
+      <h2 class="block__heading form__heading">Start Booking Now</h2>
+    </div>
+    <form action="" class="form booking__form">
+      <div class="form__group">
+        <input
+          class="form__input"
+          type="text"
+          placeholder="Full name"
+          id="full-name"
+          required
+        />
+        <label class="form__label" for="full-name">Full name</label>
+      </div>
+      <div class="form__group">
+        <input
+          class="form__input"
+          type="email"
+          placeholder="Email address"
+          id="email-address"
+          required
+        />
+        <label class="form__label" for="email-address">Email address</label>
+      </div>
+      <div class="form__group form__radios">
+        <div class="form__radio-group">
+          <input
+            class="form__radio-input"
+            type="radio"
+            name="tour-group"
+            id="tour-small"
+          />
+          <label class="form__radio-label" for="tour-small"
+            ><span class="form__radio-custom"></span
+            ><span class="form__radio-text">Small tour group</span></label
+          >
+        </div>
+        <div class="form__radio-group">
+          <input
+            class="form__radio-input"
+            type="radio"
+            name="tour-group"
+            id="tour-large"
+          />
+          <label class="form__radio-label" for="tour-large"
+            ><span class="form__radio-custom"></span
+            ><span class="form__radio-text">Large tour group</span></label
+          >
+        </div>
+      </div>
+      <button class="btn btn--secondary form__btn" type="submit">
+        Next step &rarr;
+      </button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,154 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.popup {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: all 0.3s;
+
+  &--open {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  &--open &__content {
+    transform: scale(1);
+  }
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; // relative to the 'body'
+  height: 100vh;
+  background: rgba($color-grey, 0.8);
+  z-index: $z-index-popup;
+  backdrop-filter: blur(7px);
+  @include centerFlex;
+  padding: 0 $padding-base;
+
+  &__content {
+    width: 100%;
+    background: $color-grey-light;
+    display: flex;
+    flex-direction: column;
+    border-radius: 7px;
+    overflow: hidden;
+    position: relative;
+    transform: scale(0.25);
+    transition: all 0.3s 0.2s;
+  }
+
+  &__close {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1000;
+    @include centerFlex;
+    font-size: 2.4rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: darken($color-grey, 20%);
+    }
+  }
+
+  &__imgs {
+    display: flex;
+    height: 150px;
+
+    & > * {
+      flex: 1;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__info {
+    padding: 1rem 2rem;
+    gap: 1.6rem;
+  }
+
+  &__heading {
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+
+  &__text {
+    hyphens: auto;
+  }
+
+  &__btn {
+    align-self: center;
+  }
+
+  @include xs-2 {
+    &__imgs {
+      height: 125px;
+    }
+
+    &__text {
+      font-size: 1.6rem;
+    }
+  }
+
+  @include xs-3 {
+    &__imgs {
+      height: 100px;
+    }
+
+    &__text {
+      font-size: 1.4rem;
+    }
+  }
+
+  @include sm {
+    &__heading {
+      font-size: 1.8rem;
+    }
+
+    &__text {
+      column-count: 2;
+      column-gap: 2rem;
+    }
+  }
+
+  @include md {
+    &__heading {
+      font-size: 2rem;
+    }
+  }
+
+  @include lg {
+    &__content {
+      flex-direction: row;
+      align-items: center;
+      width: 80%;
+      max-width: 1100px;
+    }
+
+    &__imgs {
+      height: 100%;
+
+      flex-direction: column;
+      flex: 1;
+    }
+
+    &__info {
+      flex: 2;
+    }
+
+    &__info {
+      gap: 3rem;
+    }
+  }
+}
